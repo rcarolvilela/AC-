@@ -29,7 +29,7 @@ public class Binario {
 
     public static String inverter ( String binario ){
         String bin = "";
-        //repetir inverter e definir binario
+        //repetir, inverter e definir binario
         for ( int i = binario.length()-1; i >= 0; i-- ){
             //inverter string
             bin = bin + binario.charAt(i);
@@ -66,8 +66,10 @@ public class Binario {
             //variar contador
             count--;
         }//end while
+        
         //inverter e concatenar
         bin = inverter(binario);
+        
         //mostrar para o usuario o resultado
         System.out.println ( "DECIMAL: " +dec+ "(10) | BINARIO: " +bin+"(2)" );
     }//end Binario ( )
@@ -85,10 +87,13 @@ public class Binario {
             System.out.println("0 - ENCERRAR.");
             System.out.println("1 - Metodo iterativo.");
             System.out.println("2 - Metodo recursivo.");
+        
             //ler opcao
             opcao = in.nextInt();
+            
             //permitir escolha
             if ( opcao == 1 ){
+                //mostrar o metodo selecionado
                 System.out.println ( "METODO ITERATIVO: DECIMAL PARA BINARIO.");
                     //permitir que o usuario digite o valor decimal desejado
                     read();
@@ -97,6 +102,7 @@ public class Binario {
                     //chamar metodo iterativo
                     Binario(decimal);
             } else if ( opcao == 2 ) {
+                //mostrar o metodo selecionado
                 System.out.println ( "METODO RECURSIVO: DECIMAL PARA BINARIO.");
                 //permitir que o usuario digite o valor decimal desejado
                 read();
@@ -104,8 +110,9 @@ public class Binario {
                 decimal = in.nextInt();
                 //chamar metodo recursivo
                 rec = binRec ( decimal );
-                //mostrar resultdo
+                //inverter string e definir binario
                 rec = inverter (rec);
+                //mostrar resultado para o usuario
                 System.out.println ( "DECIMAL: " +decimal+ "(10)| BINARIO: " +rec+"(2)");
             } else {
                 //definir parada
