@@ -9,8 +9,9 @@ public class Binario {
 
     public static void read ( ){
         //mostrar para o usuario dado a ser lido
-        System.out.println ( "" );
-        System.out.println ( "Entre com o valor decimal desejado para a conversao: ");
+        System.out.println("");
+        System.out.println("Entre com o valor decimal desejado para a conversao: ");
+	System.out.println("");
     }//end read ( )
 
     public static String binRec ( int decimal ){
@@ -29,7 +30,7 @@ public class Binario {
 
     public static String inverter ( String binario ){
         String bin = "";
-        //repetir, inverter e definir binario
+        //repetir inverter e definir binario
         for ( int i = binario.length()-1; i >= 0; i-- ){
             //inverter string
             bin = bin + binario.charAt(i);
@@ -66,12 +67,10 @@ public class Binario {
             //variar contador
             count--;
         }//end while
-        
         //inverter e concatenar
         bin = inverter(binario);
-        
         //mostrar para o usuario o resultado
-        System.out.println ( "DECIMAL: " +dec+ "(10) | BINARIO: " +bin+"(2)" );
+        System.out.println("DECIMAL: " +dec+ "(10) | BINARIO: " +bin+"(2)");
     }//end Binario ( )
 
     public static void main ( String [ ] args ) throws IOException {
@@ -87,14 +86,12 @@ public class Binario {
             System.out.println("0 - ENCERRAR.");
             System.out.println("1 - Metodo iterativo.");
             System.out.println("2 - Metodo recursivo.");
-        
+	    System.out.println("");
             //ler opcao
             opcao = in.nextInt();
-            
             //permitir escolha
             if ( opcao == 1 ){
-                //mostrar o metodo selecionado
-                System.out.println ( "METODO ITERATIVO: DECIMAL PARA BINARIO.");
+                System.out.println ( "METODO ITERATIVO: Conversao de valor decimal para binario.");
                     //permitir que o usuario digite o valor decimal desejado
                     read();
                     //ler este valor
@@ -102,22 +99,21 @@ public class Binario {
                     //chamar metodo iterativo
                     Binario(decimal);
             } else if ( opcao == 2 ) {
-                //mostrar o metodo selecionado
-                System.out.println ( "METODO RECURSIVO: DECIMAL PARA BINARIO.");
+                System.out.println ( "METODO RECURSIVO: Conversao de valor decimal para binario.");
                 //permitir que o usuario digite o valor decimal desejado
                 read();
                 //ler este valor
                 decimal = in.nextInt();
                 //chamar metodo recursivo
                 rec = binRec ( decimal );
-                //inverter string e definir binario
+                //mostrar resultdo
                 rec = inverter (rec);
-                //mostrar resultado para o usuario
-                System.out.println ( "DECIMAL: " +decimal+ "(10)| BINARIO: " +rec+"(2)");
-            } else {
-                //definir parada
-                 opcao = 0;
-            }//end else
+		System.out.println("");
+                System.out.println("DECIMAL: " +decimal+ "(10)| BINARIO: " +rec+"(2)");
+		System.out.println("");
+            } else if ( opcao != 0 ){
+			System.out.println ( "ERROR: OPCAO INVALIDA. TENTE NOVAMENTE." );
+	    }//end else if            
         } while ( opcao != 0 );
     }//end main ( )
 }//end class
